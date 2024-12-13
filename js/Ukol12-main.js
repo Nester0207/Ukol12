@@ -23,14 +23,35 @@ const poleProduktu = [
     {
         jmeno: "pero",
         cena: 50,
-        pocetKusu: 87 
+        pocetKusu: 87
     }
 ];
-const vicNez100 = poleProduktu.filter((objekt) => {
-    if (objekt.pocetKusu > 100) {
+const vicNez100 = poleProduktu.filter((produkt) => {
+    if (produkt.pocetKusu > 100) {
         return true;
     }else{
         return false;
     }
 });
 console.log(vicNez100);
+
+const novePoleKusu = poleProduktu.map((kusObjekt) => {
+    if (kusObjekt.pocetKusu > 0) {
+        return Math.floor(kusObjekt.pocetKusu/2);
+    }
+});
+console.log(novePoleKusu);
+
+
+const celkovaCenaProduktu = poleProduktu.reduce((akumulator, objektProdukt) => {
+    return akumulator + objektProdukt.cena;
+}, 0);
+console.log(celkovaCenaProduktu);
+
+
+const serazenoPodleCeny = poleProduktu.sort((objektA, objektB) => {
+    if (objektB.cena < objektA.cena) {
+        return 1;
+    }
+});
+console.log(serazenoPodleCeny);
